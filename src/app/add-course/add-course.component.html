@@ -1,0 +1,37 @@
+<div class="right-body-header">
+  <table>
+    <tr><td><h1 align="left"><img src="./../../assets/add-course-icon.png">Add a new course</h1></td></tr>
+    <tr><td>    
+    <div [hidden]="submitted" style="width: 400px;">  
+      <form [formGroup]="coursesaveform" #savecourse (ngSubmit)="saveCourse(savecourse)">  
+        <table>
+          <tr>
+            <td><label for="name"><p align="left">Course name</p></label></td>  
+            <td><input type="text" class="form-control"  formControlName="courseName" data-toggle="tooltip"   
+                 data-placement="right" required title="Enter Course name">  
+              <div class="alert alert-danger" *ngIf = "(CourseName.touched) && (CourseName.invalid)"   
+                style="margin-top: 5px;">  
+                    <span *ngIf="CourseName.errors.required">Course Name is Required</span>  
+                    <span *ngIf = "CourseName.errors.minlength">MinLength Error</span>      
+                    <span *ngIf = "CourseName.errors.maxlength">MaxLength Error</span>                
+                </div>  
+              </td></tr> 
+          <tr>
+            <td colspan="2" align="right"><button type="submit" class="btn btn-success">Submit</button></td>
+          </tr> 
+        </table> 
+      </form>  
+  </div>  
+</td></tr>  
+<tr><td> 
+<div class="row">   
+  <div class="col-sm-4">  
+      <div [hidden]="!submitted">  
+         <h4>Course Added SuccessFully!</h4>  
+         <button (click)="addCourseForm()" class='btn btn-primary'>Add More Course</button>  
+      </div>        
+  </div>
+</div>
+</td></tr> 
+  </table>
+</div>  

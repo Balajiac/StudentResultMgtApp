@@ -1,0 +1,41 @@
+<div class="right-body-header">
+    <table>
+      <tr><td><h1 align="left"><img src="./../../assets/result-list-icon.png">Student Results</h1></td></tr>
+      <tr><td> 
+        <div class="row" [hidden]="!deleteMessage">  
+            
+                  <div class="col-sm-4"></div>  
+                  <div class="col-sm-4">  
+                          <div class="alert alert-info alert-dismissible">  
+                                  <button type="button" class="close" data-dismiss="alert">×</button>  
+                                  <strong>Student Result Data Deleted</strong>  
+                          </div>  
+                  </div>  
+                  <div class="col-sm-4"></div>  
+          </div>             
+        </td></tr>  
+        <tr><td>
+      <div class="panel-body">  
+        <div *ngIf="this.studentResults == null || this.studentResults?.length === 0"><h3>No records found</h3></div>
+        <div *ngIf="this.studentResults != null && this.studentResults?.length != 0">
+        <table class="table-center"  >  
+            <thead>  
+                <tr>  
+                    <th class="table-th">Course</th>  
+                    <th class="table-th">Student</th>  
+                    <th class="table-th">Score</th> 
+                </tr>  
+            </thead>  
+            <tbody>  
+                 <tr class="table-tr" *ngFor="let studentResult of studentResults; track studentResult.resultId ">  
+                    <td class="table-td">{{studentResult.course?.courseName}}</td>  
+                    <td class="table-td">{{studentResult.student?.firstName}} {{studentResult.student?.familyName}}</td> 
+                    <td class="table-td">{{studentResult.score}}</td> 
+                  </tr>   
+            </tbody><br>  
+        </table>  
+        </div>
+    </div>  
+    </td></tr>
+    </table>
+  </div>         

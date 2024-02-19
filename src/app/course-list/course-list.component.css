@@ -1,0 +1,22 @@
+.table-th, .table-td {
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+    text-align: left;
+    padding: 16px;
+  }
+  .table-th{
+    background-color: rgba(79,192,210,1);
+    color:rgba(255,255,255,0.9);
+  }
+  .table-tr:hover{
+    background-color: #f2f2f2;
+  }
+
+  
+  .table-center {
+    width: 100%;
+    border: 1px solid #bbb;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: 18px;
+  }

@@ -1,0 +1,57 @@
+<div class="right-body-header">
+  <table>
+    <tr><td><h1 align="left"><img src="./../../assets/add-new-student-result-icon.png">Add a new result</h1></td></tr>
+    <tr><td>  
+    <div [hidden]="submitted" style="width: 400px;">  
+      <form [formGroup]="studentresultsaveform" #savestudentresult (ngSubmit)="saveStudentResult(savestudentresult)">   
+            <table>
+              <tr>
+                <td><label for="courseId"><p align="left">Course name</p></label></td>
+            <td><select class="form-control" formControlName="courseId" data-toggle="tooltip"   
+                  data-placement="right" title="Select course name" required>  
+                <option value="null" disabled>--Please select course name--</option>  
+                <option *ngFor="let course of courses" [ngValue]="course.courseId">
+                  {{ course.courseName }}
+                </option> 
+            </select> 
+          </td></tr> 
+    
+          <tr> 
+            <td><label for="studentId"><p align="left">Student Name</p></label></td> 
+            <td><select class="form-control" formControlName="studentId" data-toggle="tooltip"   
+                    data-placement="right" title="Select student name" required>  
+                  <option value="null" disabled>--Please select student name--</option>  
+                  <option *ngFor="let student of students" [ngValue]="student.studentId">
+                    {{ student.firstName }} {{ student.familyName }} 
+                  </option> 
+              </select> 
+            </td></tr>
+            <tr> 
+              <td><label for="studentId"><p align="left">Score</p></label></td>
+              <td><input type="text" class="form-control" formControlName="score"   
+                data-toggle="tooltip" data-placement="right" required title="Enter score">  
+                <div class="alert alert-danger" *ngIf = "(Score.touched) && (Score.invalid)"   
+                style="margin-top: 5px;">  
+                  <span *ngIf="Score.errors.required">Student Score is Required</span>                   
+                </div>   
+              </td>  </tr>
+    
+              <tr>
+                <td colspan="2" align="right"><button type="submit" class="btn btn-success">Submit</button></td>
+              </tr>  
+          </table>
+      </form>  
+  </div>
+</td></tr>
+<tr><td>
+<div class="row">  
+  <div class="col-sm-4">  
+      <div [hidden]="!submitted">  
+         <h4>Student Result Added SuccessFully!</h4>  
+         <button (click)="addStudentResultForm()" class='btn btn-primary'>Add More Result</button>  
+      </div>        
+  </div>  
+</div>
+  </td></tr> 
+  </table>
+</div> 

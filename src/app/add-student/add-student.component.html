@@ -1,0 +1,86 @@
+<div class="right-body-header">
+    <table>
+      <tr><td><h1 align="left"><img src="./../../assets/add-new-student-icon.png">Add a new student</h1></td></tr>
+      <tr><td>
+            <div [hidden]="submitted" style="width: 400px;">  
+              <form [formGroup]="studentsaveform" #savestudent (ngSubmit)="saveStudent(savestudent)">
+                <table>
+                  <tr>
+                    <td><label for="firstName" class="u-label"><p align="left">First name</p></label></td>  
+                    <td><input type="text" class="form-control"  formControlName="firstName" data-toggle="tooltip"   
+                         data-placement="right" required title="Enter First name">  
+                      <div class="alert alert-danger" *ngIf = "(FirstName.touched) && (FirstName.invalid)"   
+                        style="margin-top: 5px;">  
+                            <span *ngIf="FirstName.errors.required">First Name is Required</span>  
+                            <span *ngIf = "FirstName.errors.minlength">MinLength Error</span>      
+                            <span *ngIf = "FirstName.errors.maxlength">MaxLength Error</span>                
+                        </div>  
+                      </td>
+                </tr>
+
+                <tr> 
+                    <td><label for="familyName" class="u-label"><p align="left">Family name</p></label></td>  
+                    <td><input type="text" class="form-control"  formControlName="familyName" data-toggle="tooltip"   
+                       data-placement="right" required title="Enter Family name">  
+                    <div class="alert alert-danger" *ngIf = "(FamilyName.touched) && (FamilyName.invalid)"   
+                      style="margin-top: 5px;">  
+                        <span *ngIf="FamilyName.errors.required">Family Name is Required</span>  
+                        <span *ngIf = "FamilyName.errors.minlength">MinLength Error</span>   
+                        <span *ngIf = "FamilyName.errors.maxlength">MaxLength Error</span>                   
+                      </div>  
+                    </td>
+              </tr>
+
+              <tr>
+                  <td><label for="dateOfBirth"><p align="left">Date of birth</p></label></td> 
+                  <td>
+                    <input type="text" class="form-control"  formControlName="dateOfBirth" data-toggle="tooltip"   
+                       data-placement="right" required title="Enter Date of birth in MM-DD-YYYY">  
+                    <div class="alert alert-danger" *ngIf = "(DateOfBirth.touched) && (DateOfBirth.invalid)"   
+                      style="margin-top: 5px;">  
+                        <span *ngIf="DateOfBirth.errors.required">Date of birth is Required</span>  
+                        <span *ngIf = "DateOfBirth.errors.minlength">Date of birth is invalid</span>  
+                        <span *ngIf = "DateOfBirth.errors.createDateFormatValidator">Date of birth is invalid</span>                
+                      </div>
+                  </td> 
+                </tr>
+
+                <tr>
+                  <td><label for="email"><p align="left">Email address</p></label></td>  
+                  <td><input type="text" class="form-control" formControlName="email"   
+                        data-toggle="tooltip" data-placement="right" required title="Enter Student Email address">  
+                        <div class="alert alert-danger" *ngIf = "(Email.touched) && (Email.invalid)"   
+                        style="margin-top: 5px;">  
+                          <span *ngIf="Email.errors.required">Student Email is Required</span>  
+                            <span *ngIf = "Email.errors.email">   
+                                Invalid Email Format   
+                            </span>                     
+                        </div> 
+                        </td> 
+                  </tr>
+            
+                  <tr>
+                    <td colspan="2" align="right"><button type="submit" class="btn btn-success">Submit</button></td> 
+                  </tr>
+                </table>  
+              </form>  
+          </div>    
+       
+      </td></tr>
+      <tr><td>
+        <div class="row">  
+          <div class="col-sm-4"></div>  
+          <div class="col-sm-4">  
+              <div [hidden]="!submitted">  
+                 <h4>Student Added SuccessFully!</h4>  
+                 <button (click)="addStudentForm()" class='btn btn-primary'>Add More Student</button>  
+              </div>        
+          </div>  
+          <div class="col-sm-4"></div>  
+        </div> 
+      </td></tr>
+    </table>
+     
+  
+ 
+</div>

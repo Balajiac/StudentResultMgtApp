@@ -1,0 +1,47 @@
+<div class="right-body-header">
+    <table>
+      <tr><td><h1 align="left"><img src="./../../assets/student-list-icon.png">Students</h1></td></tr>
+      <tr><td> 
+        <div class="row" [hidden]="!deleteMessage">  
+            
+                  <div class="col-sm-4"></div>  
+                  <div class="col-sm-4">  
+                          <div class="alert alert-info alert-dismissible">  
+                                  <button type="button" class="close" data-dismiss="alert">×</button>  
+                                  <strong>Student Data Deleted</strong>  
+                          </div>  
+                  </div>  
+                  <div class="col-sm-4"></div>  
+          </div>             
+        </td></tr>
+        <tr><td> 
+      <div class="panel-body">  
+        <div *ngIf="this.students == null || this.students?.length === 0"><h3>No records found</h3></div>
+        <div *ngIf="this.students != null && this.students?.length != 0">
+        <table class="table-center"  >  
+            <thead>  
+                <tr>  
+                    <th class="table-th">Name & Family name</th>  
+                    <th class="table-th">DOB</th>  
+                    <th class="table-th">Email</th> 
+                    <th class="table-th">Delete</th>  
+                      
+                </tr>  
+            </thead>  
+            <tbody>  
+                 <tr class="table-tr" *ngFor="let student of students; track student.studentId ">  
+                    <td class="table-td">{{student.firstName}} {{student.familyName}}</td>  
+                    <td class="table-td">{{student.dateOfBirth}}</td> 
+                    <td class="table-td">{{student.email}}</td>  
+                    <td class="table-td">
+                      <button (click)="deleteStudent(student.studentId)" class='btn btn-primary'>
+                      <i class="fa fa-trash"></i></button>
+                    </td>  
+                  </tr>   
+            </tbody><br>  
+        </table>  
+        </div>
+    </div>  
+    </td></tr>
+    </table>
+  </div>         
